@@ -32,7 +32,7 @@ void ocall_print_error(const char *str){cerr << str << endl;}
 void ocall_print_string(const char *str){cout << str;}
 void ocall_println_string(const char *str){cout << str << endl;}
 
-//tmp.txt´æ·Åµ±Ç°SQL²Ù×÷»Øµ÷º¯Êý½á¹û 
+//tmp.txtï¿½ï¿½Åµï¿½Ç°SQLï¿½ï¿½ï¿½ï¿½ï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 void ocall_write_file(const char* FILE_NAME, const char* szAppendStr, size_t buf_len) {
 	FILE *fp ;	 
 	fp = fopen(FILE_NAME, "a+");
@@ -45,7 +45,7 @@ void ocall_write_file(const char* FILE_NAME, const char* szAppendStr, size_t buf
 	else {printf ("Failed to open the file - %s - for writing\n", FILE_NAME);exit(0);}
 }
 
-//ÀûÓÃSQL²Ù×÷ÈÕÖ¾¹¹½¨ÄÚ´æÊý¾Ý¿â 
+//ï¿½ï¿½ï¿½ï¿½SQLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ 
 void ocall_init(){
 	FILE *fp1;
 	fp1 = fopen("test.txt","r");
@@ -95,7 +95,7 @@ int main() {
 	}
 	ocall_init();
 
-	//ÉùÃ÷Á½¸öÌ×½Ó×Ösockaddr_in½á¹¹Ìå±äÁ¿£¬·Ö±ð±íÊ¾¿Í»§¶ËºÍ·þÎñÆ÷
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×½ï¿½ï¿½ï¿½sockaddr_inï¿½á¹¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½Ê¾ï¿½Í»ï¿½ï¿½ËºÍ·ï¿½ï¿½ï¿½ï¿½ï¿½
 	int serverSocket;
 	struct sockaddr_in server_addr;
 	struct sockaddr_in clientAddr;
@@ -121,7 +121,7 @@ int main() {
 		return 1;
 	}
 
-	//ÉèÖÃ·þÎñÆ÷ÉÏµÄsocketÎª¼àÌý×´Ì¬
+	//ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½socketÎªï¿½ï¿½ï¿½ï¿½×´Ì¬
 	if(listen(serverSocket, 5) < 0)
 	{
 	 	perror("listen");
@@ -135,7 +135,7 @@ int main() {
 	}
 	printf("\nwaiting...\n");
  
-	//¿ªÊ¼»¥·¢ÏûÏ¢ 
+	//ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ 
 	while(1){
 		char *zErrMsg = 0;
 		const char* data = "Callback function called"; 
@@ -159,7 +159,7 @@ int main() {
 		int sqlok;
 	ecall_execute_sql(eid,&sqlok, buffer);
 		
-		//½«tmpÊý¾Ý¶ÁÈëbuf 
+		//ï¿½ï¿½tmpï¿½ï¿½ï¿½Ý¶ï¿½ï¿½ï¿½buf 
 		ifstream in("tmp.txt", ios::in);
 		istreambuf_iterator<char> beg(in), end;
 		string tmpbuf(beg, end);
@@ -170,8 +170,8 @@ int main() {
 		} 
 		buf[i]='\0';
 		
-		//²Ù×÷³É¹¦ÔòÐ´ÈëSQLÈÕÖ¾ 		
-    	if(sqlok != 2)
+		//ï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½Ð´ï¿½ï¿½SQLï¿½ï¿½Ö¾ 		
+    	if(sqlok == 0)
 		{
 			fp = fopen("test.txt","a+");
 			if (fp != NULL) {
@@ -184,7 +184,7 @@ int main() {
     		
     	} 
 		
-//		·Çselect²Ù×÷³É¹¦£¬½«·µ»ØÖµÉèÎªDONE 
+//		ï¿½ï¿½selectï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ÎªDONE 
 //		fp = fopen("tmp.txt","r");
 //		char ch = fgetc(fp);
 //		if (ch = EOF)  {char*  buf1="DONE";fwrite(buf1,sizeof(char),strlen(buf1), fp);}

@@ -27,6 +27,8 @@ static int callback(void *NotUsed, int argc, char **argv, char **azColName){
         std::string azColName_str = azColName[i];
         std::string argv_str = (argv[i] ? argv[i] : "NULL");
 		std::string tmp = (azColName_str + " = " + argv_str + "\n");
+		/*--------------------添加加密操作，加密tmp---------------------------*/
+
         ocall_print_string(tmp.c_str());
         ocall_write_file ("tmp.txt",tmp.c_str(),tmp.length());
     }
@@ -63,12 +65,14 @@ int ecall_execute_sql(const char *sql){
 	char *r=NULL;
 	char * str2="select";
     char *zErrMsg = 0;
-	r = findstr(sql,str2);
 	
+		/*--------------------添加解密操作，解密sql---------------------------*/
+	r = findstr(sql,str2);
     rc = sqlite3_exec(db, sql, callback, 0, &zErrMsg);
 	
 	//SQL语法错误 2 
-	/*--------------------添加加密操作，解密tmp---------------------------*/
+	/*--------------------添加加密操作，加密tmp---------------------------*/
+
     if (rc) {
 		std::string tmp = "SQLite error: ";
 		tmp += sqlite3_errmsg(db);
