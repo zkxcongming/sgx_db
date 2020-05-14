@@ -1,0 +1,17 @@
+create table student(sno char(10) primary key,sname char(5))
+
+insert into student(sno,sname) values('1','zhd')
+
+insert into student(sno,sname) values('2','zkx')
+
+insert into student(sno,sname) values('3','llj')
+
+select * from student
+
+
+select * from student
+insert into student(sname,sno) values('xyc','4')
+select * from student
+
+
+
